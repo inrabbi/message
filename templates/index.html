@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - The Messaging Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px; /* match screenshot */
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo {
+      margin-bottom: 45px;
+    }
+    .logo img {
+      width: 200px;
+      display: block;
+      margin: 0 auto 1px auto;
+    }
+    .logo h2 {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0;
+      color: #004080;
+    }
+
+    /* Input fields */
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 40px 10px 5px;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      font-size: 15px;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .password-container {
+      position: relative;
+    }
+    .password-container input {
+      padding-right: 40px;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* Button */
+    .btn {
+      width: 100%;
+      background: #004A8D; /* darker blue like screenshot */
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Links */
+    .links {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+    .links a {
+      color: #004A8D;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 35px;
+      font-size: 12px;
+      color: #555;
+    }
+    .footer p {
+      margin: 6px 0;
+    }
+    .footer a {
+      display: block;
+      margin-top: 10px;
+      color: #004A8D;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="{{ url_for('static' ,filename = 'image/logo.jpg'  ) }}" alt="The Messaging Company Logo">
+    </div>
+
+    <!-- Form -->
+    <form method="POST" action="{{ url_for('login') }}"  >
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="form-group password-container">
+        <input type="password" id="password"  name="password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁</span>
+      </div>
+
+      <button type="submit" class="btn">SIGN IN</button>
+    </form>
+
+    <!-- Links -->
+    <div class="links">
+      <a href="#">Reset my password</a> | 
+      <a href="#">Sign in another way</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Language: English (UK) ▼</p>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>

